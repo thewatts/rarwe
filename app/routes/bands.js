@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import Band from '../models/band';
+// import Band from '../models/band';
 
 export default Ember.Route.extend({
   model: function() {
@@ -16,8 +16,8 @@ export default Ember.Route.extend({
     //   this.transitionTo('band.songs', band);
     // },
 
-    didTransition: function() {
-      Ember.$(document).attr('title', 'Bands - Rock & Roll');
-    },
+    // didTransition: function() {
+    //   Ember.$(document).attr('title', 'Bands - Rock & Roll');
+    // },
   }
 });

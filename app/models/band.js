@@ -1,10 +1,9 @@
-import Ember from 'ember';
 import DS from 'ember-data';
 
 var attr    = DS.attr,
     hasMany = DS.hasMany;
 
-export default Ember.Object.extend({
+export default DS.Model.extend({
   name: attr('string'),
   description: attr('string'),
   songs: hasMany('song'),
