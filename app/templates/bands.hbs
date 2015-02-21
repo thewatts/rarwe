@@ -11,7 +11,7 @@
     </div>
 
     {{#each band in model}}
-      {{#link-to "band.songs" band class="list-group-item band-link"}}
+      {{#link-to "band" band class="list-group-item band-link"}}
         {{band.name}}
         <span class="pointer glyphicon glyphicon-chevron-right"></span>
       {{/link-to}}

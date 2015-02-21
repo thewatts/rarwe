@@ -22,5 +22,10 @@ export default Ember.Route.extend({
 
       song.set('rating', rating);
     },
+
+    didTransition: function() {
+      var name = this.modelFor('band').get('name');
+      Ember.$(document).attr('title', '%@ songs = Rock & Roll'.fmt(name));
+    },
   }
 });
