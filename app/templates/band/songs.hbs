@@ -1,12 +1,13 @@
 <div class="row">
   {{#if canCreateSong}}
     <div class="list-group-item">
-      {{input type="text" class="new-song" placeholder="New Song" action="createSong" value=title}}
-      <button class="new-song-button btn btn-sm btn-primary"
-        {{ action "createSong" }}
-        {{ bind-attr disabled=isDisabled}}>
-        Add
-      </button>
+      <form {{action "createSong" on="submit"}}>
+        {{input type="text" class="new-song" placeholder="New Song" value=title}}
+        <button class="new-song-button btn btn-sm btn-primary"
+          {{ bind-attr disabled=isDisabled}}>
+          Add
+        </button>
+      </form>
     </div>
   {{else}}
     <div class="list-group-item empty-list">
