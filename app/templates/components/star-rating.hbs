@@ -1,0 +1,5 @@
+{{#each star in stars}}
+  <span {{ bind-attr class=":star-rating :glyphicon star.full:glyphicon-star:glyphicon-star-empty"}}
+        {{ action "set" star.rating on "click"}}>
+  </span>
+{{/each}}

@@ -1,9 +1,14 @@
 <div class="row">
   <ul class="list-group songs">
+    <li class="list-group-item">
+      {{input type="text" class="new-song" placeholder="New Song" action="createSong" value=title}}
+      <button class="new-song-button btn btn-sm btn-primary" {{ action "createSong" }}>Add</button>
+    </li>
+
     {{#each song in model}}
       <li class="list-group-item">
         {{song.title}}
-        <span class="rating pull-right">{{song.rating}}</span>
+        {{star-rating item=song rating=song.rating setAction="updateRating"}}
       </li>
     {{/each}}
   </ul>
