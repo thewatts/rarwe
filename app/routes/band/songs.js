@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import Song  from '../../models/song';
 
 export default Ember.Route.extend({
   model: function() {
@@ -8,12 +7,21 @@ export default Ember.Route.extend({
 
   actions: {
     createSong: function() {
-      var band  = this.modelFor('band');
-      var title = this.controller.get('title');
-      var song  = Song.create({ title: title, band: band });
+      var band       = this.modelFor('band'),
+          controller = this.get('controller'),
+          title     = controller.get('title'),
+          song;
 
-      band.get('songs').pushObject(song);
-      this.get('controller').set('title', '');
+      song = this.store.createRecord('song', {
+        title: title,
+        band: band,
+        rating: 0,
+      });
+
+      song.save().then(function() {
+        band.get('songs').pushObject(song);
+        controller.set('title', '');
+      });
     },
 
     updateRating: function(params) {
@@ -21,6 +29,8 @@ export default Ember.Route.extend({
           rating = params.rating;
 
       song.set('rating', rating);
+
+      song.save();
     },
 
     didTransition: function() {

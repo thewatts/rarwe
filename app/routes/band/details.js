@@ -1,11 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  // not needed - because it inherits from parent by default!
-  // model: function() {
-  //   return this.modelFor('band');
-  // },
-  
   actions: {
     didTransition: function() {
       var name = this.modelFor('band').get('name');

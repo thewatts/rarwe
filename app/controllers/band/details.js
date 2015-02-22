@@ -9,7 +9,13 @@ export default Ember.Controller.extend({
       this.set('isEditing', true);
     },
     save: function() {
-      this.set('isEditing', false);
+      var band = this.get('model'),
+          description = this.get('description'),
+          self = this;
+
+      band.set('description', description).save().then(function() {
+        self.set('isEditing', false);
+      });
     },
   }
 });

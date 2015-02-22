@@ -1,1 +1,17 @@
-{{outlet}}
+<div role=tabpanel>
+  <ul class="nav nav-tabs" role="tablist">
+    {{#link-to "band.details" tagName="li"}}
+      <a href="#">Details</a>
+    {{/link-to}}
+
+    {{#link-to "band.songs" tagName="li"}}
+      <a href="#">Songs</a>
+    {{/link-to}}
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active">
+      {{outlet}}
+    </div>
+  </div>
+</div>

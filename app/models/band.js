@@ -9,6 +9,8 @@ export default DS.Model.extend({
   songs: hasMany('song'),
 
   slug: function() {
-    return this.get('name').dasherize();
+    if (this.get('name')) {
+      return this.get('name').dasherize();
+    }
   }.property('name'),
 });

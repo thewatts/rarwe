@@ -1,5 +1,4 @@
 import Ember from 'ember';
-// import Band from '../models/band';
 
 export default Ember.Route.extend({
   model: function() {
@@ -7,17 +6,20 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    // createBand: function() {
-    //   var name = this.get('controller').get('name');
-    //   var band = Band.create({ name: name });
+    createBand: function() {
+      var route      = this,
+          controller = this.get('controller'),
+          rawBand    = controller.getProperties('name'),
+          band       = this.store.createRecord('band', rawBand);
 
-    //   bands.pushObject(band);
-    //   this.get('controller').set('name', '');
-    //   this.transitionTo('band.songs', band);
-    // },
+      band.save().then(function() {
+        controller.set('name', '');
+        route.transitionTo('band.songs', band);
+      });
+    },
 
-    // didTransition: function() {
-    //   Ember.$(document).attr('title', 'Bands - Rock & Roll');
-    // },
+    didTransition: function() {
+      Ember.$(document).attr('title', 'Bands - Rock & Roll');
+    },
   }
 });
