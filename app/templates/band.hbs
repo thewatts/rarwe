@@ -1,17 +1,8 @@
-<div role=tabpanel>
-  <ul class="nav nav-tabs" role="tablist">
-    {{#link-to "band.details" tagName="li"}}
-      <a href="#">Details</a>
-    {{/link-to}}
+<ul class="nav nav-tabs">
+  <li>{{link-to 'Details' 'band.details' this}}</li>
+  <li>{{link-to 'Songs'   'band.songs'   this}}</li>
+</ul>
 
-    {{#link-to "band.songs" tagName="li"}}
-      <a href="#">Songs</a>
-    {{/link-to}}
-  </ul>
-
-  <div class="tab-content">
-    <div class="tab-pane active">
-      {{outlet}}
-    </div>
-  </div>
+<div class="band-info">
+  {{outlet}}
 </div>
