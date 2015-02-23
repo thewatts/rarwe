@@ -7,7 +7,7 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     contentSecurityPolicy: {
-      'connect-src': "'self' http://localhost:9292",
+      'connect-src': "'self' http://localhost:9292 http://api.rockandrollwithemberjs.com",
       'font-src': "'self' http://maxcdn.bootstrapcdn.com",
       'style-src': "'self' http://maxcdn.bootstrapcdn.com",
     },
@@ -25,7 +25,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    ENV.apiHost = 'http://localhost:9292';
+    ENV.apiHost = 'http://api.rockandrollwithemberjs.com';
   }
 
   if (environment === 'test') {
